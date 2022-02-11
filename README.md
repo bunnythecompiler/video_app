@@ -11,3 +11,12 @@ python3 manage.py migrate
 python3 manage.py runserver
 
 
+The logins for the already created accounts are 
+
+username      email           password
+linus                           123
+mark        johndoe@gmail.com   TimCook123.
+juliet      johndoe@gmail.com     Jason123.
+aime        johndoe@gmail.com     David123.
+
+
