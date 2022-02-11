@@ -11,7 +11,7 @@ python3 manage.py migrate
 python3 manage.py runserver
 
 
-The logins for the already created accounts are 
+The logins for the already created test accounts are 
 
 username      email           password
 linus                           123
