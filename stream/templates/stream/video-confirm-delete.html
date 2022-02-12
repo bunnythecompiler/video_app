@@ -1,0 +1,11 @@
+{% extends 'stream/base.html'%}
+{% block content %}
+    <div style="margin-top: 1%;">
+        <form method="POST">
+            {% csrf_token %}
+            <h3>Are you sure you want to delete the video {{ object.title }} ?</h3>
+            <button type="submit" class="btn btn-primary">Confirm Delete</button>
+            <a href="{% url 'stream:video-detail' object.id %}" class="btn btn-primary">Cancel</a>
+        </form>
+    </div>
+{% endblock content %}

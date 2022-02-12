@@ -1,0 +1,19 @@
+{% extends 'stream/base.html'%}
+{% block content %}
+    <div>
+        <img src="{{ user.profile.image.url }}">
+        <h3>{{ user.username }}</h3>
+        <p>{{ username.email }}</p>
+    </div>
+    <div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <legend>profile info</legend>
+            {{ userform.as_p }}
+            {{ profileform.as_p }}
+            <button class="btn btn-outline-info" type="submit">Update</button>
+        </form>
+        
+    </div>
+    
+{% endblock content %}

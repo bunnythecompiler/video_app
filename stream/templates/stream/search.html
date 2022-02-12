@@ -1,0 +1,37 @@
+{% extends 'stream/base.html'%}
+{% block content %}
+    <div class="center_journal">
+        <h1>Search </h1>
+    </div>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <div class="input-group-prepend">
+                <span class="input-group-text"></span>
+                </div>
+                <input type="text" class="form-control" name="title">
+                <button type="submit" class="btn btn-dark">Search</button>
+            </div>
+
+
+        </form>
+    </div>
+    <div>
+        {% for item in videos%}
+        <div class="card" style="width: 40rem; margin: 20px; box-shadow: 12em;">
+            <img class="rounded-circle border-dark" src="{{ item.streamer.profile.image.url }}" style="border-color: red;" width="30" height="30">
+            <a class="mr-2" href="{% url 'stream:user-videos' item.streamer.username %}" style="text-align: start;">{{ item.streamer }}</a>
+            <h12 style="text-align: start;">{{ item.upload_date }}</h12>
+            <video class="card-image-top" controls>
+                <source src="{{ item.video.url }}" type="video/mp4">
+            </video>
+            <div class="card-body">
+              <h5 class="card-title"><a href="{% url 'stream:video-detail' item.id  %}">{{ item.title }}</a></h5>
+              <p class="card-text">{{item.description }}</p>
+            </div>
+            <hr>
+          </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

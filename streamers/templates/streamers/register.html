@@ -1,0 +1,15 @@
+{% extends 'stream/base.html'%}
+{% block content %}
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <h1>Register</h1>
+            {{ form.as_p }}
+            <button class="btn btn-outline-info" type="submit">Sign Up</button>
+
+        </form>
+        <div>
+            Already have an account <a href="{% url 'login' %}">Sign In</a>
+        </div>
+    </div>
+{% endblock content %}

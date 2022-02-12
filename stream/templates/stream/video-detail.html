@@ -1,0 +1,22 @@
+{% extends 'stream/base.html' %}
+{% block content %}
+    <div>
+        <img class="rounded-circle border-dark" src="{{ object.streamer.profile.image.url }}">
+        <h12>{{ object.streamer.username }}</h12>
+    </div>
+    <div>
+        <h1>{{ object.title }}</h1>
+        <h12>The video was uploaded on {{ object.upload_date }}</h12>
+        <p>{{ object.description}}</p>
+        {% if object.streamer == user %}
+            <div>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'stream:video-update' object.id %}">Update</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'stream:video-delete' object.id %}">Delete</a>
+            </div>
+        {% endif %}
+        <video controls>
+            <source src="{{ object.video.url }}" type="video/mp4">
+        </video>
+        
+    </div>
+{% endblock content %}
